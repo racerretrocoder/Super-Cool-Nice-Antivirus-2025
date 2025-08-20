@@ -1,1 +1,0 @@
-SCNAV Malware dataBASE V3.0 Total malware hash entries: 32,283,181 known threats

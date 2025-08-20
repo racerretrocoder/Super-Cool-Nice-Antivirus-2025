@@ -1,0 +1,14 @@
+LOWRAM:0
+5
+Custom Real Time Protection Scanning Directories:      Use "endscandirs" at the end of the directories you want to add
+C:\users\ae
+C:\users\ae\ae
+
+endscandirs
+
+endscandirs
+EXCLUDE
+C:\ae
+EXCLUDE
+C:\test2
+endexclude

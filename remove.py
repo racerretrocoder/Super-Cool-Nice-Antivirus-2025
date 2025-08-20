@@ -4,8 +4,13 @@ def is_admin():
     try:
         return ctypes.windll.shell32.IsUserAnAdmin()
     except:
-        print("error on figuring out if the installer is admin!")
+        print("Error on determining admin permissions!")
         return False
+try:
+    print("Init")
+except:
+    print("Could not load some file(s)! Please check to make sure that SCNAV is installed and not damaged")
+
 
 if is_admin():
     with open("threatsexe.txt", 'r') as threatsexe:
@@ -24,16 +29,19 @@ if is_admin():
 
                 try:
                     print(f"Attempt 2 of deleteing: {line}")
-                    time.sleep(3)
                     print(line[1])
                     if line[1] == ":":
                         # Not a blank space. delete it
                         os.system(f'del /f /q "{line}"')
                         print(f"Threat {line} has been deleted successfully in attempt 2!")
                 except:
-                    print("Darn. both attempts failed too delete the threat!")
+                    print("Attempts failed too delete the threat!")
                     print(f"Find {line} and delete it manually!")
                     time.sleep(1)
+    print("Threat Removeal: Complete")
+    print("Removing quarentine")
+    os.remove("threatsexe.txt")
+    os.remove("threats.txt")
 
     
 
