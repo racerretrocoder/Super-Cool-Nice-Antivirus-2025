@@ -161,7 +161,7 @@ def scan():
         print("Could not load scansettings.txt - Using default settings, Low ram mode (Slow scaninng)")
         lowrammode = 1
     if scanpath == "web": # VT Mode
-        client = vt.Client("b3290f97265893474e8028d583989e8e32ec7da2ff92fcf7fa4a9fe0357f4e14")
+        client = vt.Client("ae")
         filepathvt = sys.argv[2]
         if isadmin():
             
