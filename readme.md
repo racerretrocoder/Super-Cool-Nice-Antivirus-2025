@@ -21,14 +21,16 @@ The actual code of the AV is in python
 - Compatibility for Windows Vista and up!
 - 32bit!
 - Moderately good Real Time Protection (This is still in development. There may be bugs)
-- Large threat database! (over 38 million)
-- Lots of Scan tool(s)
-- It plays sound!
+- Large threat database! (over 38 million threats!) (NOTE: bases.txt is NOT included in this repo. because it surpases githubs fileupload limit)
+- Scan tool(s)
+- It plays sounds!
 - Antivirus Tool Box!
 - SCNAV Virtual Keyboard! (Part of toolbox)*
-- Quickly and safely remove detected threats in just 2 clicks! (If you ran a scan and detected threats. Extra clicks needed if you just launched SCNAV)
-- Simple (But very silly) User Interface
+- Quickly and safely remove detected threats in just 3 clicks! (Only if you ran a scan from the scan page. and detected threats. Extra clicks needed if you just launched SCNAV)
+- Simple (very silly) User Interface
 - Moderate sized program with a large database of malware hashes!
+- I am hosting an update server at ilovetech0629.epizy.com!
 
-* Note that the virtual keyboard was created by LeonidMTertitski. Which you can find his repo over Here
-* The virtual onscreen keyboard is copyrighted under the BSD-2-Clause license! Copyright (c) 2019, Leonid M Tertitski (Leonid.M.Tertitski@gmail.com) All rights reserved.
+# Important Information
+Note that the virtual keyboard was created by LeonidMTertitski. Which you can find his repo over Here (https://github.com/LeonidMTertitski/osk-on-screen-keyboard-windows)
+The virtual onscreen keyboard is copyrighted under the BSD-2-Clause license! Copyright (c) 2019, Leonid M Tertitski (Leonid.M.Tertitski@gmail.com) All rights reserved.
