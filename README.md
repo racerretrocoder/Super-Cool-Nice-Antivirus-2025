@@ -1,4 +1,4 @@
-# Rediculous-AntEvirus
+# SCNAV
 Super Cool Nice Antivirus 2025 version 1.02!1!1!!! (Or SCNAV. Pronounced SCUH-NAV)
 Runs on Windows 7 and up. 
 Prefered that you run on Windows 7, Because i tested and compiled it on there
