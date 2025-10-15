@@ -6,6 +6,7 @@ print("scnavrealtime.exe -- Real Time Protection")
 print("")
 scantime = 100 # overwritten with settings file
 checktime = 3
+scanspeed = 0
 
 import os, time, hashlib, sys, subprocess
 import os.path
@@ -48,7 +49,7 @@ def requestscan(directory):
 
     if notexcluded == 1:  
         CREATE_NO_WINDOW = 0x08000000
-        #subprocess.call(f"sscan.exe {directory} activescan", creationflags=CREATE_NO_WINDOW)
+        subprocess.call(f"sscan.exe {directory} activescan", creationflags=CREATE_NO_WINDOW)
         print("scan finish, delaying")
         global scantime
         time.sleep(scantime)
@@ -60,6 +61,7 @@ def checkfiles():
     # Goals of this function:
     #  |--- Have the ability to rapidly detect changes in filecount in folders, whilist hopefully being easy on resources
     #  |--- If the file count has changed we will run a scan on that folder  
+    #  |--- Speed Control
     scanreq1 = 0
     scanreq2 = 0
     global ranOnce
@@ -95,7 +97,19 @@ def checkfiles():
             print(filesAndFolders2)
         if ranOnce == 1:
             print("---------------------- checking for changes ----------------------")
-            #time.sleep(1)
+            global scanspeed
+            if scanspeed == 0:
+                time.sleep(5)
+            elif scanspeed == 1:
+                time.sleep(3)
+            elif scanspeed == 2:
+                time.sleep(2)
+            elif scanspeed == 3:
+                time.sleep(1)
+            elif scanspeed == 4:
+                time.sleep(0.5)
+            elif scanspeed == 5:
+                fastest = 1 # Do somthing other than sleep
             print(f"Expecting: {commondirs[i]} : {nummain}")
             print(f"FilesAndF: {filesAndFolders1[i]}")
             folder1String = f"{commondirs[i]} : {nummain}"
@@ -217,6 +231,7 @@ try:
     # First load the RTP settings
     settings = fileoperation(2,"scansettings.txt",)
     scantime = int(settings[1])
+    scanspeed = int(settings[2])
     # i starts at 3
     numlines = fileoperation(4,"scansettings.txt") # number of lines in the file - 3
     print(f"Number of lines!: {numlines}")

@@ -41,13 +41,6 @@ print("scan.exe | sscan.exe -- SCNAV File Scanner")
 
 
 
-try: 
-    import vt
-except:
-    print("error could not import virus total")
-
-# please dont abuse my api key for virus total :(
-# d41d8cd98f00b204e9800998ecf8427e  zero byte test file
 debug = 0
 sound = 'C:\\Program Files\\SCNAV2025\\threat.mp3'
 try:
@@ -151,7 +144,7 @@ def scan():
     lowrammode = 0
 
     try:
-        settings = fileoperation(4,"scansettings.txt",)
+        settings = fileoperation(4,"C:\\Program files\\SCNAV2025\\scansettings.txt",)
         print(settings[0])
         if settings[0] == "LOWRAM:0" or settings[0] == "LOWRAM:0\n":
             lowrammode = 0
@@ -212,7 +205,7 @@ def scan():
     
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         history = f"[{timestamp}] Scanned in {scanpath}\n"
-        fileoperation(1,"scanhistory.txt",history)
+        fileoperation(1,"C:\\Program files\\SCNAV2025\\scanhistory.txt",history)
         
         basesoutdated = 0
         if basesoutdated == 1:
@@ -232,7 +225,7 @@ def scan():
             """Scans a file and checks if its hash is in the malware list"""
             try:
                 print(f"Scanning {filename}")
-                fileoperation(1,"scanneddirs.txt",filepath)   
+                fileoperation(1,"C:\\Program files\\SCNAV2025\\scanneddirs.txt",filepath)   
                 file_hash = fileoperation(3,filepath)
                 timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 global threatsound
@@ -244,7 +237,7 @@ def scan():
                                 print("threat detected!")
                 #if file_hash in malware_hashes:
                                 if debug != 0:
-                                    fileoperation(1,"debug.txt",f"[{timestamp}] Threat detected: {filename} Location: {filepath} (Hash: {file_hash})")
+                                    fileoperation(1,"C:\\Program files\\SCNAV2025\\debug.txt",f"[{timestamp}] Threat detected: {filename} Location: {filepath} (Hash: {file_hash})")
                                 print(f"[{timestamp}] Threat detected: {filename} Location: {filepath} (Hash: {file_hash})")
                                 
                                 threatcount = threatcount + 1
@@ -266,8 +259,8 @@ def scan():
                                         print("Error on playing error sound file")
 
                                 time.sleep(1) # delay 1 second!
-                                fileoperation(1,"threats.txt",filepath + "\n") # Store threat location in quarentine!
-                                fileoperation(1,"threatsexe.txt",filename + "\n") # Store threat location in quarentine!
+                                fileoperation(1,"C:\\Program files\\SCNAV2025\\threats.txt",filepath + "\n") # Store threat location in quarentine!
+                                fileoperation(1,"C:\\Program files\\SCNAV2025\\threatsexe.txt",filename + "\n") # Store threat location in quarentine!
                             else: 
                                 clean = 1
                 elif lowrammode == 0: # Fast scanning
@@ -293,8 +286,8 @@ def scan():
                                         print("Error on playing threat.wav sound file")
 
                                 time.sleep(1) # delay 1 second!
-                                fileoperation(1,"threats.txt",filepath + "\n") # Store threat location in quarentine!
-                                fileoperation(1,"threatsexe.txt",filename + "\n") # Store threat location in quarentine!
+                                fileoperation(1,"C:\\Program files\\SCNAV2025\\threats.txt",filepath + "\n") # Store threat location in quarentine!
+                                fileoperation(1,"C:\\Program files\\SCNAV2025\\threatsexe.txt",filename + "\n") # Store threat location in quarentine!
                             else: 
                                 clean = 1
             except Exception as e:
@@ -308,7 +301,7 @@ def scan():
                     filepath = os.path.join(root, file)
                     scan_file(filepath, malware_hashes, file, lowrammode)
         
-        hash_file = "bases.txt" 
+        hash_file = "C:\\Program files\\SCNAV2025\\bases.txt" 
         # OK FIRST Determine if we are in low ram mode
         if lowrammode == 0:
             # low ram disabled! lets use 4gb to store the database

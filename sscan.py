@@ -161,7 +161,7 @@ def scan():
         print("Could not load scansettings.txt - Using default settings, Low ram mode (Slow scaninng)")
         lowrammode = 1
     if scanpath == "web": # VT Mode
-        client = vt.Client("ae")
+        client = vt.Client("b3290f97265893474e8028d583989e8e32ec7da2ff92fcf7fa4a9fe0357f4e14")
         filepathvt = sys.argv[2]
         if isadmin():
             
@@ -195,7 +195,11 @@ def scan():
                     print(f"Malicious: {file.last_analysis_stats['malicious']} / {max}")
                     print(f"Suspicious: {file.last_analysis_stats['suspicious']} / {max}")
                     print(f"Undetected:  {file.last_analysis_stats['undetected']} / {max}")
-                    print("")
+                    mal = (int(file.last_analysis_stats['malicious']) / max) * 100
+                    sus = (int(file.last_analysis_stats['suspicious']) / max) * 100
+                    und = (int(file.last_analysis_stats['undetected']) / max) * 100
+                    
+                    print(f"Percent Detected: Mal: {mal}% Sus: {sus}% und: {und}%")
                     print("Done!")
                     print("Delaying for 20 seconds...")
                     client.close()
