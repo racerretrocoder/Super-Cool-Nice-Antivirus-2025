@@ -1,5 +1,4 @@
 LOWRAM:0
 60
-Custom Real Time Protection Scanning Directories:      Use "endscandirs" at the end of the directories you want to add
-
+3
 endscandirs

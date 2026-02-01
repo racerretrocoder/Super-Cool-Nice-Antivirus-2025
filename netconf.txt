@@ -1,8 +1,0 @@
-127.0.0.1
-5003
-
-
-Client.exe's config for connecting to a computer running SERVER.exe
-Line 1 is the IP of the server
-Line 2 of this file is the port of the server (allways 5003  ill fix this in a next update)
-For help visit: http://server1.phoenixproliant.42web.io:4556/SCNAV/help.html
