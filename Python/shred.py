@@ -9,6 +9,9 @@ print("")
 candelete = 1
 # Random Byte generator
 # Similar to secrets.token_bytes()
+
+# Hello there Racerretrocoder, I want to help improve SCNAV! Its very funny!
+
 def garbagedata(number=None):
     if number == None:
         number = 1
@@ -39,6 +42,7 @@ def shreddirectory(directory):
             shredfile(filepath)	
 	
 def ae():
+	global candelete
     print("Shredder!!!")
     if 1 == 1:
       mode = int(sys.argv[1]) # int, 1 for individual file or 2 for folder (and included subdirectories)
@@ -47,7 +51,7 @@ def ae():
       if message == "n":
         candelete = 0;
         print("Wont delete files after shredding!")
-        time.sleep(2)
+        time.sleep(1)
         print("Begin!")
       
       if mode == 1:
@@ -58,7 +62,8 @@ def ae():
       if mode == 2:
           shreddirectory(file)
           print("Complete!")
-          time.sleep(5)
+          time.sleep(2)
+		  ae = input("[Press any key to exit]")
       else:
           print("Arguments:  shred.exe int(mode) str(path)   <-- Put path in quotes if it contains a space!")
           print("Mode: 1 | Shred only 1 file")
